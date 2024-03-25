@@ -1,0 +1,354 @@
+﻿PONTIFÍCIA UNIVERSIDADE CATÓLICA DE CAMPINAS
+
+
+
+
+
+
+
+
+
+
+
+
+ISABELLY LETÍCIA HORSCHUTZ
+JÚLIA DAMÁRIA LUPI
+MAYSA GABRIELLE RODRIGUES DE MELO
+PEDRO RIBEIRO BERTOLUCCI VILLAS BOAS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RELATÓRIO DE PROJETO:
+Cadastro de Produtos para Sistema de Fluxo de Estoque
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CAMPINAS
+2024
+PONTIFÍCIA UNIVERSIDADE CATÓLICA DE CAMPINAS 
+ESCOLA POLITÉCNICA
+SISTEMAS DE INFORMAÇÃO 
+
+
+ISABELLY LETÍCIA HORSCHUTZ
+JÚLIA DAMÁRIA LUPI
+MAYSA GABRIELLE RODRIGUES DE MELO
+PEDRO RIBEIRO BERTOLUCCI VILLAS BOAS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RELATÓRIO DE PROJETO:
+Cadastro de Produtos para Sistema de Fluxo de Estoque
+
+
+
+
+
+
+
+
+Relatório de projeto de sistema, apresentado no componente curricular Projeto Integrador I, do curso de Sistemas de Informação, da Escola Politécnica da Pontifícia Universidade Católica de Campinas.
+
+
+Orientador: José Marcelo Traina Chacon[a]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CAMPINAS
+2024
+________________
+SUMÁRIO  
+
+
+1.        INTRODUÇÃO        1
+2.        JUSTIFICATIVA        2
+3.        OBJETIVOS        3
+4.        ESCOPO        7
+5.        NÃO ESCOPO        8
+6.        REQUISITOS FUNCIONAIS        9
+7.        REQUISITOS NÃO FUNCIONAIS        10
+8.        METODOLOGIA APLICADA AO PROJETO        11
+9.        ACOMPANHAMENTO DA GESTÃO DO PROJETO        13
+10.        PREMISSAS        14
+11.        RESTRIÇÕES        15
+12.        PRINCIPAIS TELAS DO SISTEMA, DESCRIÇÃO FUNCIONAMENTO        16
+13.        CONCLUSÃO        17
+13.1        Resultados obtidos        17
+13.2        Sugestões de melhorias        17
+REFERÊNCIAS        18
+
+
+
+
+________________
+
+
+1. INTRODUÇÃO
+
+
+A introdução deve conter a apresentação do problema investigado e seu relacionamento com outros trabalhos, formando os antecedentes que justificam a pesquisa. Deve incluir a formulação de hipóteses, as delimitações do assunto e os objetivos propostos. É fundamental que contenha um referencial teórico, e também é conveniente que, nesta seção, seja feita uma revisão da literatura existente ou artigos científicos, com os objetivos de: 
+
+
+* Oferecer informações relevantes sobre o assunto abordado, identificando soluções e sugestões apresentadas, aspectos ainda não estudados ou resultados que necessitem de continuação ou confirmação; 
+
+
+* Oferecer subsídios para melhor compreensão e interpretação dos resultados que serão apresentados no decorrer do trabalho; 
+
+
+* Corroborar a necessidade ou a oportunidade do estudo. 
+
+
+A revisão da literatura não deve ser uma sequência impessoal de resumos de outros trabalhos; ao contrário, deve incluir a contribuição do autor, demonstrando que os trabalhos foram examinados e criticados objetivamente.
+
+
+Exemplo de uma introdução
+Ao longo dos últimos tempos, muitas pessoas se encontram em situação de péssima alimentação e com diversos problemas referentes à obesidade, ponto que o número de pessoas obesas no mundo triplicou desde 1975, diz a Organização Mundial da Saúde, o que ocasiona num mal desenvolvimento do seu corpo e compromete sua saúde. Nossa equipe se solidariza com tais problemas e resolvemos então , criar um projeto a fim de ajudar as pessoas de forma que elas consigam conhecer melhor seu corpo e controlar seu bem-estar. Dados divulgados pela Organização Mundial da Saúde (OMS), como o Índice de massa corporal, serão de suma importância para a execução do projeto.
+________________
+2. JUSTIFICATIVA
+  
+A justificativa descreve a situação existente que gerou a necessidade de realizá-lo. Responde à pergunta: Por que fazer?
+Enfatiza o propósito e/ou a motivação que levou à identificação da necessidade de desenvolvimento deste sistema. Utilize argumentos baseados em necessidades ou dificuldades (dores) sentidas pelo público alvo que vocês querem atingir. Podem ser utilizados dados estatísticos comprovando a necessidade.
+Exemplo: % de pessoas acima do peso, riscos com alimentação desbalanceada.
+
+
+Exemplo de Justificativa
+Após a equipe realizar uma pesquisa e tomar conhecimento das dificuldades de diversas pessoas sobre questões que envolvem peso e alimentação, fomos motivados a iniciar a criação de um software que é capaz sanar a necessidade desses indivíduos em conseguirem, ter uma noção do seu nível de saúde corpórea e ter uma melhor qualidade de saúde, já que, de acordo com o IBGE, cerca de 60,3% da população com 18 anos ou mais estão acima do peso. Além disso, 25,9% da população brasileira se encontra no estado de obesidade, mostrando assim que, o aplicativo se faz necessário para auxiliar essas pessoas. Com isso, esse software é se tratará de uma ferramenta intuitiva e fácil de se usar, que seja capaz de calcular e explicitar o IMC do usuário e auxiliar no gerenciamento de sua ingestão diária.
+Desse modo, cada vez mais pessoas conseguirão melhorar o seu estado de saúde e poderão ter um norte para se guiar com relação a sua saúde corporal.
+________________
+3. OBJETIVOS  
+Objetivo Geral:
+Aplicar funcionalidade de cadastro de produtos para o sistema de fluxo de estoque.
+Objetivo Específico:
+·        Inserir e armazenar dados sobre os produtos contidos no estoque;
+·        Analisar e calcular custos e lucros;
+·        Manipular dados pelo sistema;
+·        Apresentar o resultado dos cálculos de forma estruturada e organizada;
+·        Verificar a faixa de lucro de cada produto;
+·        Conectar ao banco de dados;
+ 
+O projeto a ser descrito no decorrer deste documento tem como finalidade aplicar funcionalidade de cadastro de produtos para sistemas de fluxo de estoque, de forma que a gestão ocorra com eficácia.  Através do desenvolvimento de uma aplicação de cadastro de produtos será possível inserir, alterar ou excluir os dados referentes aos objetos armazenados, garantindo a quantidade necessária de materiais, sem que ocorra indisponibilidade ou acumulação. Dentre os objetivos específicos que irão colaborar para um bom desempenho na aplicação, pode-se citar:
+1-       Inserir e armazenar os dados de novos produtos;
+2-       Analisar e calcular os custos, auxiliando na determinação do preço de venda, tendo como referência os custos do produto, custos fixos, comissões de venda, impostos e margem desejada para lucro;
+3-       Manipular dados do sistema, permitindo atualizações e exclusão dos cadastros caso necessário para controle de quais produtos estão sendo armazenados e suas quantidades;
+4-       Apresentar o resultado dos cálculos de forma estruturada e organizada através do desenvolvimento de uma rotina e leitura. A exibição dos detalhes apresentará preço de venda, custos relacionados ao produto, receita bruta e rentabilidade;
+5-       Verificar e exibir a faixa de lucro de modo que o gestor possa decidir a melhor estratégia para venda e gestão do estoque, sem que haja prejuízos;
+6-       Conectar ao banco de dados garantindo o armazenamento e integridade dos dados de cada produto estocado, possibilitando a conclusão dos objetivos acima.
+________________
+4. ESCOPO
+  
+Descrever, por meio de texto curto e sucinto, a abrangência (áreas ou unidades da organização) e dar uma ideia aproximada da complexidade do sistema, descrevendo:
+* Os benefícios que o sistema irá promover ao usuário-chave, inclusive citar quem são os usuários do sistema.
+* Os dados relevantes (macro informações) que o sistema usa e produz.
+* As grandes fontes/destino desses dados (origem e destino das informações).
+* Os principais eventos ligados aos processos, rotinas e fluxo de trabalho associados que serão tratados (reconhecidos) pelo sistema e que serão automatizados.
+
+
+Exemplos de Escopo
+O nosso objetivo ao desenvolver o programa é atingir pessoas que buscam obter maior controle e regularidade na alimentação. Para isso, será necessário que o usuário forneça ao sistema dados como peso, altura, sexo e idade.. Com os dados obtidos, o utilizador será informado de qual é o seu Índice de massa corporal (IMC), através de dados fornecidos pela Organização Mundial da Saúde (OMS), e receberá a quantia ideal de calorias a serem ingeridas ao longo de 24 horas, além disso, o usuário também poderá ter seus dados salvos em um banco de dados, para que o mesmo possa efetuar login no sistema assim que quiser, para poder visualizar suas informações e ter o acompanhamento de seu controle calórico. O programa será feito em Python.
+________________
+5. NÃO ESCOPO
+  
+Ao contrário do escopo, o não escopo são as funções que não serão implantadas no sistema por falta de necessidade ou qualquer outro motivo. Exemplos:
+* Cancelamento de requisição
+* Acesso para alunos
+* Recuperação de senha
+* Anexo de arquivos
+* Alteração de requisição
+
+
+Exemplo de não escopo
+* Anexo de arquivos.
+* Alteração de requisição.
+* Banco de dados.
+* Recuperação de senha.
+* Não serão necessárias informações adicionais (celular, email, etc).
+* Exclusão de dados já cadastrados.
+________________
+   6. REQUISITOS FUNCIONAIS
+  
+Os requisitos refletem as necessidades e as expectativas das partes interessadas no projeto, principalmente do cliente, incluindo as condições ou capacidades que estes desejam que sejam cumpridas pelo projeto, o estejam presentes no produto.
+É o conjunto de requisitos mínimos que o software deve conter para que sua perfeita execução não seja afetada.
+
+
+Exemplo de Requisitos Funcionais
+Conforme modelo utilizado em atividade de requisitos funcionais do sistema do projeto integrador.
+ Tabela
+
+Descrição gerada automaticamente 
+________________
+
+   7. REQUISITOS NÃO FUNCIONAIS
+  
+É o conjunto de requisitos mínimos que define propriedades e restrições do sistema.
+
+
+Exemplo de Requisitos Não Funcionais
+Conforme modelo utilizado em atividade de requisitos não funcionais do sistema do projeto integrador.
+
+
+ Interface gráfica do usuário, Texto, Aplicativo, Email
+
+Descrição gerada automaticamente 
+
+________________
+
+
+   8. METODOLOGIA APLICADA AO PROJETO
+  
+Esta aplicação foi desenvolvida para prática da metodologia de Aprendizagem Baseada em Projetos (PBL). Através das prescrições recebidas pelo orientador do projeto dividindo-o em quatro fases, das quais, se seguidas, resultam na aplicação funcionando de forma eficiente e organizada. Em todas as fases solicitadas foram feitos testes e atividades avaliativas de forma que fosse constantemente examinado, garantindo o exercício de suas funções sem erros.
+A primeira fase, foi determinada como o levantamento de requisitos. Nela ocorreu o aprofundamento do tema - como o funcionamento de um estoque, exemplos de documentações a serem seguidas, o que são sistemas, buscas de requisitos funcionais e não funcionais, cálculos de custos e lucros e dados necessários para inserção dos produtos - de forma que houvesse o entendimento pleno das ações que fazem parte da aplicação.
+Na fase dois inicia o desenvolvimento dos algoritmos e a codificação do programa na linguagem de programação Python, onde são lidas as informações do cadastro dos produtos. O objetivo final desta fase é que os cálculos sejam feitos e exibidos, além de classificar a faixa de lucro como: lucro alto, médio, baixo, equilibrado ou prejuízo. Já na terceira fase o banco de dados é criado e implementado, nele deve ser feito o armazenamento dos produtos. A criação de objetos ou de novos cadastros foram feitos manualmente. Ao final da terceira fase, o banco de dados foi conectado à aplicação.  
+Na última fase do projeto foi criada funcionalidade além do cadastro, são elas: inserir, alterar, apagar, listar e saída do sistema. Foi acrescentado também um menu, para que o usuário pudesse escolher a função que deseja conforme sua necessidade. Para encerrar a quarta fase, foram feitos os testes como garantia do bom desempenho e checagem se os objetivos foram atingidos.  
+________________
+
+
+   9. ACOMPANHAMENTO DA GESTÃO DO PROJETO
+  
+ Interface gráfica do usuário, Aplicativo
+
+Descrição gerada automaticamente 
+https://trello.com/b/uMKFIzWa
+   10. PREMISSAS 
+
+
+Premissas são os fatores associados ao escopo do projeto que, para fins de planejamento, são assumidos como verdadeiros, reais ou certos sem a necessidade de prova ou demonstração. Ou seja, são hipóteses ou pressupostos.
+
+
+Exemplos de premissas de um sistema:
+   * Serão disponibilizados computadores na rede PUC, um computador por aluno;
+   * São necessários Softwares específicos para elaboração e execução do sistema/programa.
+   * Acesso à Internet.
+   * Browser instalado.
+
+
+
+
+
+
+________________
+
+
+   11. RESTRIÇÕES 
+
+
+Declaração de restrições impostas sobre o desenvolvimento do sistema. Essas restrições definem, por exemplo, a adequação a custos e prazos, a plataforma tecnológica, aspectos legais, limitações sobre a interface com o usuário, eventuais necessidades de comunicação do novo sistema com sistemas legados, componentes de hardware e software a serem adquiridos, etc.
+Exemplos de restrições:
+   * A ausência de algum integrante da equipe por algum motivo de força maior poderá impactar no desenvolvimento do projeto, nos quesitos de prazo de entrega (atrasos) e escopo (funcionalidades reduzidas), neste caso serão revistas às estratégias de atribuição das atividades, a possibilidade de inserção de um novo integrante ou mesmo a rediscussão sobre a redução do escopo do projeto.
+   * Para utilização do sistema o usuário precisará possuir um computador para ter acesso e usufruir de todas as funcionalidades disponíveis no aplicativo.
+   * O projeto será executado com prazo até a data de 08/06/2024. 
+
+
+
+
+________________
+
+
+   12. PRINCIPAIS TELAS DO SISTEMA, DESCRIÇÃO FUNCIONAMENTO
+
+
+Apresentar as telas do sistema e descrever o seu funcionamento.
+ Texto
+
+Descrição gerada automaticamente 
+
+
+
+________________
+
+
+   13. CONCLUSÃO
+
+
+A conclusão deve responder se os objetivos do trabalho foram alcançados. Deve ser clara e concisa, e referir-se às hipóteses levantadas e discutidas no trabalho. Não é recomendável a inclusão de citação bibliográfica (final do trabalho).
+
+
+
+
+   1. Resultados obtidos
+
+
+Descrever os principais resultados obtidos no desenvolvimento do sistema.
+
+
+
+
+   2. Sugestões de melhorias
+
+
+Sugestões de melhorias levantadas para o sistema durante o seu desenvolvimento e que não estavam listadas no escopo do projeto
+
+
+ Texto
+
+Descrição gerada automaticamente 
+________________
+
+REFERÊNCIAS
+
+
+As referências constituem um conjunto de indicações precisas e minuciosas, obtidas do próprio documento, permitindo sua identificação no todo ou em parte, que seguem orientações estabelecidas pela Associação Brasileira de Normas Técnicas.
+
+
+ Tela de celular com texto preto sobre fundo branco
+
+Descrição gerada automaticamente com confiança média 
+
+[a]Conferir se há necessidade de modificar
