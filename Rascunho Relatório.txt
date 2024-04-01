@@ -141,49 +141,24 @@ REFERÊNCIAS        18
 ________________
 
 
-1. INTRODUÇÃO
+1. INTRODUÇÃO - Isabelly Horschutz
+  O crescimento exponencial das empresas em decorrência da globalização ressalta a necessidade cada vez mais imediata da implementação de sistemas eficientes de controle de estoque. Independentemente do porte da empresa, um sistema de controle de estoque eficaz é essencial não apenas para monitorar a entrada e saída de produtos, mas também para otimizar processos internos, tornando-os mais ágeis e estratégicos.
+  No contexto nacional, estudos acadêmicos têm destacado a relevância do controle de estoque para a concorrência das empresas brasileiras. Tendo em vista que a falta de controle de estoque adequado pode resultar em perdas significativas de lucratividade e eficiência operacional para as empresas do Brasil. Siqueira e Tomelin (2017). 
+Dado o exposto, a meta do nosso projeto é desenvolver uma aplicação de cadastro de produtos de controle de estoque que possa ajudar as empresas na otimização, satisfação do cliente evitando erros que possam surgir, suprindo as expectativas, potencializando e impulsionando vendas por meio desse sistema implementado
 
 
-A introdução deve conter a apresentação do problema investigado e seu relacionamento com outros trabalhos, formando os antecedentes que justificam a pesquisa. Deve incluir a formulação de hipóteses, as delimitações do assunto e os objetivos propostos. É fundamental que contenha um referencial teórico, e também é conveniente que, nesta seção, seja feita uma revisão da literatura existente ou artigos científicos, com os objetivos de: 
-
-
-* Oferecer informações relevantes sobre o assunto abordado, identificando soluções e sugestões apresentadas, aspectos ainda não estudados ou resultados que necessitem de continuação ou confirmação; 
-
-
-* Oferecer subsídios para melhor compreensão e interpretação dos resultados que serão apresentados no decorrer do trabalho; 
-
-
-* Corroborar a necessidade ou a oportunidade do estudo. 
-
-
-A revisão da literatura não deve ser uma sequência impessoal de resumos de outros trabalhos; ao contrário, deve incluir a contribuição do autor, demonstrando que os trabalhos foram examinados e criticados objetivamente.
-
-
-Exemplo de uma introdução
-Ao longo dos últimos tempos, muitas pessoas se encontram em situação de péssima alimentação e com diversos problemas referentes à obesidade, ponto que o número de pessoas obesas no mundo triplicou desde 1975, diz a Organização Mundial da Saúde, o que ocasiona num mal desenvolvimento do seu corpo e compromete sua saúde. Nossa equipe se solidariza com tais problemas e resolvemos então , criar um projeto a fim de ajudar as pessoas de forma que elas consigam conhecer melhor seu corpo e controlar seu bem-estar. Dados divulgados pela Organização Mundial da Saúde (OMS), como o Índice de massa corporal, serão de suma importância para a execução do projeto.
 ________________
-2. JUSTIFICATIVA
+
+
+2. JUSTIFICATIVA - Isabelly Horschutz
   
-A justificativa descreve a situação existente que gerou a necessidade de realizá-lo. Responde à pergunta: Por que fazer?
-Enfatiza o propósito e/ou a motivação que levou à identificação da necessidade de desenvolvimento deste sistema. Utilize argumentos baseados em necessidades ou dificuldades (dores) sentidas pelo público alvo que vocês querem atingir. Podem ser utilizados dados estatísticos comprovando a necessidade.
-Exemplo: % de pessoas acima do peso, riscos com alimentação desbalanceada.
+Após a análise de alguns estudos no Brasil, conseguimos identificar que um dos maiores agravantes para o bom desempenho de uma empresa é o mau uso ou má implementação do sistema de controle de estoque. De acordo com uma pesquisa realizada pela Associação Brasileira de Logística (ABRALOG), cerca de 60% das empresas brasileiras enfrentam problemas relacionados ao controle de estoque, como por exemplo irregularidade nos registros, problemas na gestão de registros e falta de integração entre os setores de produção e logística (ABRALOG, 2021). Além disso, aproximadamente 35% das perdas econômicas nas empresas são por conta de falhas no controle de estoque, incluindo excessos, faltas e desuso de produtos (MACHADO et al., 2019).
+Esses dados mostram a urgência de soluções eficazes para melhorar o gerenciamento de estoque nas empresas, visando garantir seu lugar no mercado e a eficiência operacional. Portanto, é fundamental investir em sistemas de controle de estoque robustos e estratégias de gestão que promovam a precisão, a integridade e a sincronia das informações, com o objetivo de minimizar os impactos negativos e potencializar os resultados empresariais.
 
-
-Exemplo de Justificativa
-Após a equipe realizar uma pesquisa e tomar conhecimento das dificuldades de diversas pessoas sobre questões que envolvem peso e alimentação, fomos motivados a iniciar a criação de um software que é capaz sanar a necessidade desses indivíduos em conseguirem, ter uma noção do seu nível de saúde corpórea e ter uma melhor qualidade de saúde, já que, de acordo com o IBGE, cerca de 60,3% da população com 18 anos ou mais estão acima do peso. Além disso, 25,9% da população brasileira se encontra no estado de obesidade, mostrando assim que, o aplicativo se faz necessário para auxiliar essas pessoas. Com isso, esse software é se tratará de uma ferramenta intuitiva e fácil de se usar, que seja capaz de calcular e explicitar o IMC do usuário e auxiliar no gerenciamento de sua ingestão diária.
-Desse modo, cada vez mais pessoas conseguirão melhorar o seu estado de saúde e poderão ter um norte para se guiar com relação a sua saúde corporal.
 ________________
-3. OBJETIVOS  
-Objetivo Geral:
-Aplicar funcionalidade de cadastro de produtos para o sistema de fluxo de estoque.
-Objetivo Específico:
-·        Inserir e armazenar dados sobre os produtos contidos no estoque;
-·        Analisar e calcular custos e lucros;
-·        Manipular dados pelo sistema;
-·        Apresentar o resultado dos cálculos de forma estruturada e organizada;
-·        Verificar a faixa de lucro de cada produto;
-·        Conectar ao banco de dados;
- 
+
+
+3. OBJETIVOS - Júlia Lupi
 O projeto a ser descrito no decorrer deste documento tem como finalidade aplicar funcionalidade de cadastro de produtos para sistemas de fluxo de estoque, de forma que a gestão ocorra com eficácia.  Através do desenvolvimento de uma aplicação de cadastro de produtos será possível inserir, alterar ou excluir os dados referentes aos objetos armazenados, garantindo a quantidade necessária de materiais, sem que ocorra indisponibilidade ou acumulação. Dentre os objetivos específicos que irão colaborar para um bom desempenho na aplicação, pode-se citar:
 1-       Inserir e armazenar os dados de novos produtos;
 2-       Analisar e calcular os custos, auxiliando na determinação do preço de venda, tendo como referência os custos do produto, custos fixos, comissões de venda, impostos e margem desejada para lucro;
@@ -191,164 +166,370 @@ O projeto a ser descrito no decorrer deste documento tem como finalidade aplicar
 4-       Apresentar o resultado dos cálculos de forma estruturada e organizada através do desenvolvimento de uma rotina e leitura. A exibição dos detalhes apresentará preço de venda, custos relacionados ao produto, receita bruta e rentabilidade;
 5-       Verificar e exibir a faixa de lucro de modo que o gestor possa decidir a melhor estratégia para venda e gestão do estoque, sem que haja prejuízos;
 6-       Conectar ao banco de dados garantindo o armazenamento e integridade dos dados de cada produto estocado, possibilitando a conclusão dos objetivos acima.
+
+
 ________________
-4. ESCOPO
+
+
+4. ESCOPO - Pedro Bertolucci
+  O nosso objetivo ao desenvolver o programa  é para se ter controle no cadastro de novos produtos no sistema de controle de estoque. Para isso, será necessário que o usuário forneça ao sistema alguns dados do produto como nome, código de identificação, preço e quantidade no estoque. Com os dados obtidos, o utilizador conseguirá atualizar informações de produtos existentes, como quantidade em estoque. Além disso, os dados dos produtos cadastrados serão salvos em um banco de dados, podendo listar, alterar ou excluir os produtos já cadastrados. Ainda a conexão com o banco de dados irá permitir melhores cálculos relacionados aos preços e, também, análise dos dados referentes ao lucro que será obtido sobre cada insumo que está armazenado no estoque.
+  É importante reafirmar que o projeto em questão trata-se de uma aplicação para um sistema de controle de estoque, a mesma será desenvolvida na linguagem de programação Python, sendo o objeto de estudo do primeiro semestre.
+
+________________
+
+
+5. NÃO ESCOPO - Pedro Bertolucci
+A aplicação a ser desenvolvida não terá as seguintes funcionalidades:
+* telas de login;
+* validação de senhas e códigos; 
+* desenvolvimento de front end;  
+* consultas informativas sobre localização de cada produto;
+* consulta sobre especificações; 
+* sistema completo para controle de estoque; 
+* gerenciamento de permissões; 
+* cadastro de usuário, como funcionários;
+* criação de relatórios personalizados. 
+
+________________
+
+
+6. REQUISITOS FUNCIONAIS - Maysa Melo
+RF_F1: Cadastro de Novos Produtos
+Descrição:
+Este requisito diz respeito à capacidade do sistema de permitir o cadastro de novos produtos no estoque, garantindo um controle eficaz e facilitando a localização dos mesmos. Isso inclui a inserção de informações como descrição, código, preço, categoria e fornecedor.
+Ator Principal:
+Funcionário.
+Pré-Condições:
+O funcionário precisa das informações do produto, como lote, marca, quantidade e local de armazenamento.
+Pós-Condições:
+Confirmação do cadastro do produto no sistema.
+Armazenamento das informações do produto no local indicado.
+Validações:
+Validação do código do produto para garantir unicidade.
+Código do funcionário.
+Verificação de campos obrigatórios preenchidos durante o cadastro.
+Requisitos Especiais:
+O sistema deve ser capaz de lidar com produtos de diferentes categorias e fornecedores.
+Deve ser possível associar um lote ao produto, quando aplicável.
+Fluxo Principal:
+Ações do Autor
+Ações do Programa
+
+
+Tela de Menu 
+Acessar cadastro de produtos
+
+
+
+
+Exibir tela de cadastro de produtos 
+Preencher os campos com os devidos dados, como: código do produto, nome, marca, quantidade, cor etc.
+
+
+
+
+Verificar se todos os campos obrigatórios estão preenchidos ou com dados inválidos
+
+
+Validar os dados inseridos (por exemplo, validação de código único)
+Clicar no botão de "Salvar"
+
+
+
+
+Verificar se não há conflitos com outros produtos cadastrados
+
+
+Armazenar os dados do novo produto no banco de dados
+Aguardar a confirmação de cadastro exibida pelo sistema
+
+
+
+
+Exibir mensagem de confirmação de cadastro
+
+
+RF_F2: Atualização de Produtos
+Descrição:
+O sistema deve permitir a atualização das informações de produtos existentes, incluindo preço, quantidade em estoque, localização, entre outros.
+Ator Principal:
+Funcionário.
+Pré-Condições:
+O produto a ser atualizado deve estar cadastrado no sistema.
+Pós-Condições:
+Confirmação da atualização das informações do produto.
+Validações:
+Verificação dos dados atualizados para garantir consistência.
+Fluxo Principal:
+Ações do Autor
+Ações do Programa
+
+
+Tela de Menu
+Selecionar “Atualizar Estoque”
+
+
+
+
+Exibir tela de atualização de estoque
+Selecionar o produto a ser atualizado
+
+
+
+
+Recuperar os dados do produto selecionado do banco de dados
+Clicar no botão de "Atualizar"
+
+
+
+
+Exibir formulário preenchido com os dados atuais do produto
+Atualizar os campos com as novas informações
+
+
+
+
+Verificar se todos os campos obrigatórios estão preenchidos e válidos
+
+
+Validar os dados inseridos (por exemplo, validação de código único)
+Clicar no botão de "Salvar Atualização"
+
+
+
+
+Verificar se não há conflitos com outros produtos cadastrados
+
+
+Atualizar os dados do produto no banco de dados com as novas informações
+Aguardar a confirmação de atualização exibida pelo sistema
+
+
+
+
+Exibir mensagem de confirmação de atualização
+
+
+RF_F3: Exclusão de Produtos
+Descrição:
+Este requisito trata da capacidade do sistema de permitir a exclusão de produtos cadastrados, quando necessário.
+Ator Principal:
+Funcionário.
+Pré-Condições:
+O produto a ser excluído deve estar cadastrado no sistema.
+Pós-Condições:
+Confirmação da exclusão bem-sucedida.
+Remoção das informações do produto do sistema.
+Validações:
+Validação do código do produto para garantir que ele exista no sistema.
+Fluxo Principal:
+Ações do Autor
+Ações do Programa
+
+
+Tela de Menu
+Selecionar “Excluir Produto”
+
+
+
+
+Exibir tela para exclusão de produtos
+Selecionar o produto a ser excluído
+
+
+
+
+Recuperar os dados do produto selecionado do banco de dados
+Clicar no botão de "Excluir"
+
+
+
+
+Exibir confirmação de exclusão do produto, solicitando confirmação do autor
+Confirmar a exclusão através de uma mensagem ou botão
+
+
+
+
+Remover o produto do banco de dados
+Aguardar a confirmação de exclusão exibida pelo sistema
+
+
+
+
+Exibir mensagem de confirmação de exclusão
+
+
+RF_F4: Listagem de Produtos
+Descrição:
+Este requisito trata da capacidade do sistema de listar os produtos cadastrados, permitindo aos usuários visualizarem todas as informações relevantes de forma organizada.
+Ator Principal:
+Funcionário.
+Pré-Condições:
+O funcionário deve ter acesso autorizado ao sistema.
+Pós-Condições:
+Exibição da lista de produtos cadastrados.
+Validações:
+Confirmação de que existem produtos cadastrados no sistema antes de exibir a lista.
+Garantia de que os produtos listados estão atualizados e refletem os dados armazenados no banco de dados.
+Fluxo Principal:
+Ações do Autor
+Ações do Programa
+
+
+Tela de Menu
+Acessar listagem de produtos
+
+
+
+
+Exibir tela de listagem de produtos
+Visualizar a lista de produtos cadastrados
+
+
+
+
+Recuperar os dados do produto cadastrado do banco de dados
+
+
+Organizar e exibir os produtos de forma ordenada na tela
+Navegar pela lista para encontrar informações desejadas
+
+
+
+
+Disponibilizar opções de filtragem e ordenação na interface
+
+
+Atualizar a exibição conforme os filtros e ordenações selecionados
+
+
+RF_F5: Saída do Sistema
+Descrição:
+Este requisito trata da capacidade do sistema de permitir que os usuários façam logout ou saiam do sistema de forma segura, encerrando a sessão de trabalho.
+Ator Principal:
+Funcionário.
+Pré-Condições:
+O usuário deve estar autenticado no sistema e ter uma sessão ativa.
+Pós-Condições:
+Encerramento da sessão do usuário.
+Limpeza de quaisquer dados temporários ou variáveis de sessão.
+Validações:
+Verificação de que o usuário está realmente logado antes de permitir a saída do sistema.
+Confirmação do encerramento da sessão e limpeza de dados apenas se a saída for realizada com sucesso.
+Fluxo Principal:
+Ações do Autor
+Ações do Programa
+
+
+Tela de Menu
+Clicar no botão de "Sair"
+
+
+
+
+Receber o comando de saída do sistema
+
+
+Encerrar a sessão atual do usuário
+
+
+Limpar quaisquer dados temporários ou variáveis de sessão
+Confirmar a saída através de uma mensagem ou botão
+
+
+
+
+Exibir confirmação de saída do sistema, solicitando confirmação do autor
+Aguardar a confirmação de saída exibida pelo sistema
+
+
+
+
+Efetuar a saída do sistema
+
+________________
+
+7. REQUISITOS NÃO FUNCIONAIS - Maysa Melo
   
-Descrever, por meio de texto curto e sucinto, a abrangência (áreas ou unidades da organização) e dar uma ideia aproximada da complexidade do sistema, descrevendo:
-* Os benefícios que o sistema irá promover ao usuário-chave, inclusive citar quem são os usuários do sistema.
-* Os dados relevantes (macro informações) que o sistema usa e produz.
-* As grandes fontes/destino desses dados (origem e destino das informações).
-* Os principais eventos ligados aos processos, rotinas e fluxo de trabalho associados que serão tratados (reconhecidos) pelo sistema e que serão automatizados.
+RN_01 – Desempenho
+O sistema lida eficientemente com grandes volumes de dados e garante tempos de resposta rápidos durante operações de cadastro de produtos.
+RN_02 – Usabilidade
+A interface do usuário é intuitiva e fornece feedback claro durante o processo de cadastro de produtos.
+RN_03 – Segurança
+Medidas robustas de segurança foram implementadas para proteger os dados cadastrais contra acesso não autorizado.
+RN_04 – Confiabilidade
+O sistema é altamente confiável, garantindo disponibilidade contínua e realizando backups regulares para evitar perda de dados.
+RN_05 – Padrão
+O sistema segue padrões de codificação reconhecidos e boas práticas de desenvolvimento de software para garantir consistência, legibilidade e manutenibilidade do código-fonte. Isso inclui a adesão a convenções de nomenclatura, estilo de codificação e estruturação de código.
+RN_06 – Hardware e Software
+Em relação ao hardware, garantimos que o sistema fosse executado em um ambiente com um processador de média potência, capaz de lidar com as operações de forma eficiente, e com memória RAM suficiente para suportar a carga de trabalho esperada, proporcionando assim um desempenho rápido e responsivo. Além disso, asseguramos que houvesse espaço de armazenamento adequado para acomodar o banco de dados de produtos, garantindo acesso rápido e confiável aos dados. Em termos de software, selecionamos cuidadosamente o SQL como nosso banco de dados e implementamos o sistema usando Python. Essa escolha nos permitiu desenvolver um sistema robusto e eficiente, capaz de lidar com as operações de cadastro e consulta de produtos de forma rápida e confiável.
 
-
-Exemplos de Escopo
-O nosso objetivo ao desenvolver o programa é atingir pessoas que buscam obter maior controle e regularidade na alimentação. Para isso, será necessário que o usuário forneça ao sistema dados como peso, altura, sexo e idade.. Com os dados obtidos, o utilizador será informado de qual é o seu Índice de massa corporal (IMC), através de dados fornecidos pela Organização Mundial da Saúde (OMS), e receberá a quantia ideal de calorias a serem ingeridas ao longo de 24 horas, além disso, o usuário também poderá ter seus dados salvos em um banco de dados, para que o mesmo possa efetuar login no sistema assim que quiser, para poder visualizar suas informações e ter o acompanhamento de seu controle calórico. O programa será feito em Python.
 ________________
-5. NÃO ESCOPO
+
+
+8. METODOLOGIA APLICADA AO PROJETO - Júlia Lupi
   
-Ao contrário do escopo, o não escopo são as funções que não serão implantadas no sistema por falta de necessidade ou qualquer outro motivo. Exemplos:
-* Cancelamento de requisição
-* Acesso para alunos
-* Recuperação de senha
-* Anexo de arquivos
-* Alteração de requisição
-
-
-Exemplo de não escopo
-* Anexo de arquivos.
-* Alteração de requisição.
-* Banco de dados.
-* Recuperação de senha.
-* Não serão necessárias informações adicionais (celular, email, etc).
-* Exclusão de dados já cadastrados.
-________________
-   6. REQUISITOS FUNCIONAIS
-  
-Os requisitos refletem as necessidades e as expectativas das partes interessadas no projeto, principalmente do cliente, incluindo as condições ou capacidades que estes desejam que sejam cumpridas pelo projeto, o estejam presentes no produto.
-É o conjunto de requisitos mínimos que o software deve conter para que sua perfeita execução não seja afetada.
-
-
-Exemplo de Requisitos Funcionais
-Conforme modelo utilizado em atividade de requisitos funcionais do sistema do projeto integrador.
- Tabela
-
-Descrição gerada automaticamente 
-________________
-
-   7. REQUISITOS NÃO FUNCIONAIS
-  
-É o conjunto de requisitos mínimos que define propriedades e restrições do sistema.
-
-
-Exemplo de Requisitos Não Funcionais
-Conforme modelo utilizado em atividade de requisitos não funcionais do sistema do projeto integrador.
-
-
- Interface gráfica do usuário, Texto, Aplicativo, Email
-
-Descrição gerada automaticamente 
+  Esta aplicação foi desenvolvida para prática da metodologia de Aprendizagem Baseada em Projetos (PBL). Através das prescrições recebidas pelo orientador do projeto dividindo-o em quatro fases, das quais, se seguidas, resultam na aplicação funcionando de forma eficiente e organizada. Em todas as fases solicitadas foram feitos testes e atividades avaliativas de forma que fosse constantemente examinado, garantindo o exercício de suas funções sem erros.
+  A primeira fase, foi determinada como o levantamento de requisitos. Nela ocorreu o aprofundamento do tema - como o funcionamento de um estoque, exemplos de documentações a serem seguidas, o que são sistemas, buscas de requisitos funcionais e não funcionais, cálculos de custos e lucros e dados necessários para inserção dos produtos - de forma que houvesse o entendimento pleno das ações que fazem parte da aplicação.
+  Na fase dois inicia o desenvolvimento dos algoritmos e a codificação do programa na linguagem de programação Python, onde são lidas as informações do cadastro dos produtos. O objetivo final desta fase é que os cálculos sejam feitos e exibidos, além de classificar a faixa de lucro como: lucro alto, médio, baixo, equilibrado ou prejuízo. Já na terceira fase o banco de dados é criado e implementado, nele deve ser feito o armazenamento dos produtos. A criação de objetos ou de novos cadastros foram feitos manualmente. Ao final da terceira fase, o banco de dados foi conectado à aplicação.  
+  Na última fase do projeto foi criada funcionalidade além do cadastro, são elas: inserir, alterar, apagar, listar e saída do sistema. Foi acrescentado também um menu, para que o usuário pudesse escolher a função que deseja conforme sua necessidade. Para encerrar a quarta fase, foram feitos os testes como garantia do bom desempenho e checagem se os objetivos foram atingidos.  
 
 ________________
 
 
-   8. METODOLOGIA APLICADA AO PROJETO
-  
-Esta aplicação foi desenvolvida para prática da metodologia de Aprendizagem Baseada em Projetos (PBL). Através das prescrições recebidas pelo orientador do projeto dividindo-o em quatro fases, das quais, se seguidas, resultam na aplicação funcionando de forma eficiente e organizada. Em todas as fases solicitadas foram feitos testes e atividades avaliativas de forma que fosse constantemente examinado, garantindo o exercício de suas funções sem erros.
-A primeira fase, foi determinada como o levantamento de requisitos. Nela ocorreu o aprofundamento do tema - como o funcionamento de um estoque, exemplos de documentações a serem seguidas, o que são sistemas, buscas de requisitos funcionais e não funcionais, cálculos de custos e lucros e dados necessários para inserção dos produtos - de forma que houvesse o entendimento pleno das ações que fazem parte da aplicação.
-Na fase dois inicia o desenvolvimento dos algoritmos e a codificação do programa na linguagem de programação Python, onde são lidas as informações do cadastro dos produtos. O objetivo final desta fase é que os cálculos sejam feitos e exibidos, além de classificar a faixa de lucro como: lucro alto, médio, baixo, equilibrado ou prejuízo. Já na terceira fase o banco de dados é criado e implementado, nele deve ser feito o armazenamento dos produtos. A criação de objetos ou de novos cadastros foram feitos manualmente. Ao final da terceira fase, o banco de dados foi conectado à aplicação.  
-Na última fase do projeto foi criada funcionalidade além do cadastro, são elas: inserir, alterar, apagar, listar e saída do sistema. Foi acrescentado também um menu, para que o usuário pudesse escolher a função que deseja conforme sua necessidade. Para encerrar a quarta fase, foram feitos os testes como garantia do bom desempenho e checagem se os objetivos foram atingidos.  
+9. ACOMPANHAMENTO DA GESTÃO DO PROJETO
+
 ________________
 
 
-   9. ACOMPANHAMENTO DA GESTÃO DO PROJETO
-  
- Interface gráfica do usuário, Aplicativo
-
-Descrição gerada automaticamente 
-https://trello.com/b/uMKFIzWa
-   10. PREMISSAS 
-
-
-Premissas são os fatores associados ao escopo do projeto que, para fins de planejamento, são assumidos como verdadeiros, reais ou certos sem a necessidade de prova ou demonstração. Ou seja, são hipóteses ou pressupostos.
-
-
-Exemplos de premissas de um sistema:
-   * Serão disponibilizados computadores na rede PUC, um computador por aluno;
-   * São necessários Softwares específicos para elaboração e execução do sistema/programa.
-   * Acesso à Internet.
-   * Browser instalado.
-
-
-
-
+10. PREMISSAS - Maysa Melo
+1 -	O sistema foi realizado tanto nos computadores disponibilizados pela rede PUC quanto nas máquinas pessoais do grupo em casa.
+2 -	Foram necessários softwares específicos para realização e execução do sistema.
+3 -	O sistema conta com uma interface intuitiva e amigável para facilitar o uso pelos usuários.
+4 -	O sistema está acessível por meio de uma conexão estável com a internet para permitir o acesso remoto e atualizações em tempo real.
+5 -	Foram realizados backups periódicos dos dados do sistema, garantindo a integridade e a disponibilidade dos registros de produtos em caso de falha no sistema.
+6 -	As tecnologias escolhidas, SQL e Python, foram compatíveis e estáveis o suficiente para atender às necessidades do sistema sem grandes problemas de interoperabilidade ou instabilidade.
+7 -	A equipe de desenvolvimento teve o conhecimento e as habilidades necessárias para a implementação das tecnologias escolhidas e desenvolvimento do sistema de forma eficaz e dentro do prazo.
 
 
 ________________
 
 
-   11. RESTRIÇÕES 
+11. RESTRIÇÕES - Júlia Lupi
+* A não participação de algum dos integrantes do grupo, podendo acarretar em atrasos para conclusão de cada fase pré-existente e seus desenvolvimentos. Neste casa as funções serão remanejadas para os demais participantes, de forma que seja cumprido rigorosamente o calendário referente às datas de entrega. 
+* É de extrema importância a utilização de computadores que possuam bom desempenho para desenvolver as fases relacionadas aos códigos, sejam eles referentes aos códigos da aplicação ou do banco de dados. 
+* A não disponibilização da PUC Campinas aos laboratórios ou notebooks pode acarretar em atrasos ao desenvolver a aplicação, tendo em vista as a necessidade de instalações dos ambientes de programação (IDE).
+* ImprevistoS relacionados a ministração das aulas podem acarretar em menores aprendizados causando maiores dificuldades durante o projeto, tendo em vista as relações diretas entre as matérias do curso de sistemas de informação e as exigências do projeto.
+
+________________
 
 
-Declaração de restrições impostas sobre o desenvolvimento do sistema. Essas restrições definem, por exemplo, a adequação a custos e prazos, a plataforma tecnológica, aspectos legais, limitações sobre a interface com o usuário, eventuais necessidades de comunicação do novo sistema com sistemas legados, componentes de hardware e software a serem adquiridos, etc.
-Exemplos de restrições:
-   * A ausência de algum integrante da equipe por algum motivo de força maior poderá impactar no desenvolvimento do projeto, nos quesitos de prazo de entrega (atrasos) e escopo (funcionalidades reduzidas), neste caso serão revistas às estratégias de atribuição das atividades, a possibilidade de inserção de um novo integrante ou mesmo a rediscussão sobre a redução do escopo do projeto.
-   * Para utilização do sistema o usuário precisará possuir um computador para ter acesso e usufruir de todas as funcionalidades disponíveis no aplicativo.
-   * O projeto será executado com prazo até a data de 08/06/2024. 
-
-
+12. PRINCIPAIS TELAS DO SISTEMA, DESCRIÇÃO FUNCIONAMENTO
 
 
 ________________
 
 
-   12. PRINCIPAIS TELAS DO SISTEMA, DESCRIÇÃO FUNCIONAMENTO
+13. CONCLUSÃO
+
+________________
 
 
-Apresentar as telas do sistema e descrever o seu funcionamento.
- Texto
-
-Descrição gerada automaticamente 
-
+1. Resultados obtidos
 
 
 ________________
 
 
-   13. CONCLUSÃO
+2. Sugestões de melhorias
 
 
-A conclusão deve responder se os objetivos do trabalho foram alcançados. Deve ser clara e concisa, e referir-se às hipóteses levantadas e discutidas no trabalho. Não é recomendável a inclusão de citação bibliográfica (final do trabalho).
-
-
-
-
-   1. Resultados obtidos
-
-
-Descrever os principais resultados obtidos no desenvolvimento do sistema.
-
-
-
-
-   2. Sugestões de melhorias
-
-
-Sugestões de melhorias levantadas para o sistema durante o seu desenvolvimento e que não estavam listadas no escopo do projeto
-
-
- Texto
-
-Descrição gerada automaticamente 
 ________________
+
 
 REFERÊNCIAS
+[1]PALMEIRA, F. et al. OS BENEFÍCIOS QUE A GESTÃO DE ESTOQUE PODE TRAZER A UMA EMPRESA DE PEQUENO E MÉDIO PORTE DO SETOR COMERCIAL DE MANAUS - ISSN 1678-0817 Oualis B2. Disponivel em: <https://revistaft.com.br/>. Acesso em: 27 mar. 2024.
+[2]Costa, Ana Patrícia Bandeira de Melo. Logística portuária: análise das estratégias logísticas do Porto do Itaqui/MA. MS thesis. 2017.
+[3]ABRALOG – Associação Brasileira de Logística – Disponível em: <https://www.abralog.com.br>. Acesso em: 27 mar. 2020.
 
-
-As referências constituem um conjunto de indicações precisas e minuciosas, obtidas do próprio documento, permitindo sua identificação no todo ou em parte, que seguem orientações estabelecidas pela Associação Brasileira de Normas Técnicas.
-
-
- Tela de celular com texto preto sobre fundo branco
-
-Descrição gerada automaticamente com confiança média 
-
-[a]Conferir se há necessidade de modificar
