@@ -1,0 +1,38 @@
+print("Aplicação para Cadastro de Produtos para Sistemas de Controle de Estoque")
+
+try:
+    
+    cod_produto = int(input("Código do produto: "))
+    if cod_produto <= 0:
+        print("Inválido. O código deve ser maior que zero.")
+    else: 
+        #nome_produto = input("Nome do produto: ")
+        #descr_produto = input("Descrição: ")
+        custo_produto = float("Custo do produto: ")
+        if custo_produto <= 0:
+            print("Inválido. O custo deve ser maior que zero.") 
+        else: 
+            custo_fixo = float("Custos fixos: ")
+            if custo_fixo <= 0:
+                print("Inválido. O custo fixo deve ser maior que zero.") 
+            else: 
+                comissao_venda = float("Comissão da Venda(%): ") 
+                if comissao_venda < 0:
+                    print("Inválido. A comissão de venda deve conter um valor positivo ou nulo.") 
+                else: 
+                    impostos = float("Impostos(%): ")  
+                    if impostos <= 0:
+                        print("Inválido. O valor do imposto deve ser maior que zero.") 
+                    else: 
+                        rentabilidade = float(input("Rentabilidade(%): "))
+                        
+                        #Calcular os valores respectivos as porcentagens insiridas
+                        
+                        preco_venda = custo_produto / [1 - (custo_fixo + comissao_venda + impostos /
+                        + rentabilidade / 100)]
+                        
+                        #https://medium.com/zeroeumas/criando-uma-tabela-em-python-5a7c95d093e2
+    print("")
+
+except ValueError: 
+    print("O dado inserido em um dos campos está incorreto.")
