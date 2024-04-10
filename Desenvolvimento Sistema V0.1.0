@@ -1,7 +1,8 @@
 print("APLICAÇÃO DE CADASTRO DE PRODUTOS PARA SISTEMA DE CONTROLE DE ESTOQUE\n")
 
 try:
-    
+
+    #entrada de dados
     cod_prod = int(input("CÓDIGO DO PRODUTO: "))
     if cod_produto <= 0:
         print("Inválido. O código deve ser maior que zero.")
@@ -25,7 +26,8 @@ try:
                         print("Inválido. A porcentagem referente ao imposto deve ser maior que zero.") 
                     else: 
                         rentabilidade = float(input("LUCRO ESPERADO(%): "))
-                                        
+
+                        #calculo preço de vendas
                         preco_venda = custo_prod / (1 - ((cf_prod + comissao_venda + impostos + rentabilidade)/100))
                         print(preco_venda)
                         
