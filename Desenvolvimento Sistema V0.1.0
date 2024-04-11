@@ -33,39 +33,38 @@ def criarTabela():
     print("OUTROS CUSTOS\t\t\t%f\t\t%f" % (outros_custos, por100_outros))
     print("RENTABILIDADE\t\t\t%f\t\t%f" % (valor_rentabilidade, rentabilidade))
     print("-"*100)
-
-try:
-
+    
+try: 
+    
     #entrada de dados
-    cod_prod = int(input("CÓDIGO DO PRODUTO: "))
-    if cod_produto <= 0:
-        print("Inválido. O código deve ser maior que zero.")
+    cod_prod = int(input("Códido do Produto: "))
+    if cod_prod <= 0: 
+        print("Inválido. O código do produto deve ser maior que zero.")
     else: 
-        nome_prod = input("NOME DO PRODUTO: ")
-        descr_prod = input("DESCRIÇÃO DO PRODUTO: ")
-        custo_prod = float(input("CUSTO DO PRODUTO: "))
-        if custo_prod <= 0:
-            print("Inválido. O valor do custo do produto deve ser maior que zero.") 
-        else: 
-            cf_prod = float(input("CUSTO FIXO(%): "))
+        nome_prod = input("Nome do Produto: ")
+        descr_prod = input("Descrição do Produto: ")
+        custo_prod = float(input("Custo do Produto: "))
+        if custo_prod <= 0: 
+            print("Inváldo. O valor do custo do produto deve ser maior que zero.")
+        else:
+            cf_prod = float(input("Custo Fixo/Administrativo(%): "))
             if cf_prod <= 0:
-                print("Inválido. A porcentagem referente ao custo fixo deve ser maior que zero.") 
-            else: 
-                comissao_venda = float(input("COMISSÃO DE VENDA(%): ")) 
-                if comissao_venda < 0:
-                    print("Inválido. A  porcentagem referente a comissão de venda deve conter um valor positivo ou nulo.") 
+                print("Inválido. A porcentagem referente ao custo fixo deve ser maior que zero.")
+            else:
+                comissao_venda = float(input("Comissão de Vendas(%): "))
+                if comissao_venda < 0: 
+                    print("Inválido. A  porcentagem referente a comissão de venda deve conter um valor positivo ou nulo.")
                 else: 
-                    impostos = float(input("IMPOSTOS(%): "))  
-                    if impostos <= 0:
-                        print("Inválido. A porcentagem referente ao imposto deve ser maior que zero.") 
-                    else: 
-                        rentabilidade = float(input("LUCRO ESPERADO(%): "))
-
-                        #calculo preço de vendas
-                        preco_venda = custo_prod / (1 - ((cf_prod + comissao_venda + impostos + rentabilidade)/100))
-                        print(preco_venda)
+                    impostos = float(input("Impostos(%): "))
+                    if impostos <= 0: 
+                        print("Inválido. A porcentagem referenta ao imposto deve ser maior que zero.")
+                    else:
+                        rentabilidade = float(input("Lucro Pretendido(%): "))
                         
-                         #Cálculos para exibição
+                        #cálculo preço de venda
+                        preco_venda = custo_prod / (1 - ((cf_prod + comissao_venda + impostos + rentabilidade)/100))
+                        
+                        #Cálculos para exibição
                         rec_bruta = preco_venda - custo_prod
                         outros_custos = cf_prod + comissao_venda + impostos
                         #percentual sobre os valores 
@@ -83,6 +82,6 @@ try:
                         criarTabela()
                         verificarLucro()
                         print("-"*100)
-
-except ValueError:
+                        
+except ValueError: 
     print("ERRO! O valor insirido não corresponde com o campo.")
