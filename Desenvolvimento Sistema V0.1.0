@@ -1,5 +1,39 @@
 print("APLICAÇÃO DE CADASTRO DE PRODUTOS PARA SISTEMA DE CONTROLE DE ESTOQUE\n")
 
+#função verificar lucro
+def verificarLucro():
+    if rentabilidade > 20: 
+        print("LUCRO ALTO")
+    elif rentabilidade > 10 and rentabilidade <= 20: 
+        print("LUCRO MÉDIO")
+    elif rentabilidade > 0 and rentabilidade <= 10:
+        print("LUCRO BAIXO")
+    elif rentabilidade < 0: 
+        print("PREJUÍZO")
+    else: 
+        print("EQUILIBRIO")
+        
+#função tabela       
+def criarTabela():
+    print("-"*100)
+    print("INFORMAÇÕES DO PRODUTO")
+    print("-"*100)
+    print("CÓDIGO\t\t\t%i\t\t\t" % (cod_prod))
+    print("NOME\t\t\t%s\t\t\t" % (nome_prod))
+    print("DESCRIÇÃO\t\t%s\t\t\t" % (descr_prod))
+    print("-"*100)
+    print("DESCRIÇÃO\t\t\tVALOR\t\t\tPORCENTAGEM")
+    print("-"*100)
+    print("PREÇO DE VENDA\t\t\t%f\t\t%f" % (preco_venda,por100_precoVenda))
+    print("Custo de Aquisição\t\t%f\t\t%f" % (custo_prod, por100_custoProd))
+    print("RECEITA BRUTA\t\t\t%f\t\t%f" % (rec_bruta, por100_recBruta))
+    print("Custo Fixo/Administrativo\t%f\t\t%f" % (valor_cf, cf_prod))
+    print("Comissão de Vendas\t\t%f\t\t%f" % (valor_comissao, comissao_venda))
+    print("Impostos\t\t\t%f\t\t%f" % (valor_imposto, impostos))
+    print("OUTROS CUSTOS\t\t\t%f\t\t%f" % (outros_custos, por100_outros))
+    print("RENTABILIDADE\t\t\t%f\t\t%f" % (valor_rentabilidade, rentabilidade))
+    print("-"*100)
+
 try:
 
     #entrada de dados
@@ -31,7 +65,24 @@ try:
                         preco_venda = custo_prod / (1 - ((cf_prod + comissao_venda + impostos + rentabilidade)/100))
                         print(preco_venda)
                         
-                        #https://medium.com/zeroeumas/criando-uma-tabela-em-python-5a7c95d093e2
+                         #Cálculos para exibição
+                        rec_bruta = preco_venda - custo_prod
+                        outros_custos = cf_prod + comissao_venda + impostos
+                        #percentual sobre os valores 
+                        por100_precoVenda = (100 * preco_venda)/preco_venda
+                        por100_custoProd = (100 * custo_prod)/preco_venda
+                        por100_recBruta = (100 * rec_bruta)/preco_venda
+                        por100_outros = (100 * outros_custos )/preco_venda
+                        valor_cf = (preco_venda * cf_prod)/100
+                        valor_rentabilidade = (preco_venda * rentabilidade)/100
+                        valor_comissao = (preco_venda * comissao_venda)/100
+                        valor_imposto = (preco_venda * impostos)/100
+                        
+                        #exibindo tabela de dados
+                        print("")
+                        criarTabela()
+                        verificarLucro()
+                        print("-"*100)
 
 except ValueError:
     print("ERRO! O valor insirido não corresponde com o campo.")
