@@ -24,16 +24,16 @@ def criarTabela():
     print("NOME\t\t\t%s\t\t\t" % (nome_prod))
     print("DESCRIÇÃO\t\t%s\t\t\t" % (descr_prod))
     print("-"*100)
-    print("DESCRIÇÃO\t\t\tVALOR\t\t\tPORCENTAGEM")
+    print("DESCRIÇÃO\t\t\tVALOR\t\tPORCENTAGEM")
     print("-"*100)
-    print("PREÇO DE VENDA\t\t\t%f\t\t%f" % (preco_venda,por100_precoVenda))
-    print("Custo de Aquisição\t\t%f\t\t%f" % (custo_prod, por100_custoProd))
-    print("RECEITA BRUTA\t\t\t%f\t\t%f" % (rec_bruta, por100_recBruta))
-    print("Custo Fixo/Administrativo\t%f\t\t%f" % (valor_cf, cf_prod))
-    print("Comissão de Vendas\t\t%f\t\t%f" % (valor_comissao, comissao_venda))
-    print("Impostos\t\t\t%f\t\t%f" % (valor_imposto, impostos))
-    print("OUTROS CUSTOS\t\t\t%f\t\t%f" % (outros_custos, por100_outros))
-    print("RENTABILIDADE\t\t\t%f\t\t%f" % (valor_rentabilidade, rentabilidade))
+    print(f"PREÇO DE VENDA\t\t\tR${preco_venda:.2f}\t\t{por100_precoVenda:.2f}%") 
+    print(f"Custo de Aquisição\t\tR${custo_prod:.2f}\t\t{por100_custoProd:.2f}%")
+    print(f"RECEITA BRUTA\t\t\tR${rec_bruta:.2f}\t\t{por100_recBruta:.2f}%")
+    print(f"Custo Fixo/Administrativo\tR${valor_cf:.2f}\t\t{cf_prod:.2f}%")
+    print(f"Comissão de Vendas\t\tR${valor_comissao:.2f}\t\t{comissao_venda:.2f}%")
+    print(f"Impostos\t\t\tR${valor_imposto:.2f}\t\t{impostos:.2f}%")
+    print(f"OUTROS CUSTOS\t\t\tR${outros_custos:.2f}\t\t{por100_outros:.2f}%")
+    print(f"RENTABILIDADE\t\t\tR${valor_rentabilidade:.2f}\t\t{rentabilidade:.2f}%")
     print("-"*100)
     
 try: 
@@ -84,13 +84,12 @@ try:
                         valor_imposto = (preco_venda * impostos)/100
                         
                         #exibindo tabela de dados
-                        
                         print("-"*100)
                         print("")
                         print("-"*100)
                         criarTabela()
                         verificarLucro()
+                        print("-"*100)
                         
 except ValueError: 
-    print("ERRO! O valor insirido não corresponde com o campo.")
     print("ERRO! O valor insirido não corresponde com o campo.")
