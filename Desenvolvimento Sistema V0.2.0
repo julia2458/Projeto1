@@ -1,0 +1,85 @@
+import mysql.connector
+
+
+def calcularPrecoVenda(custo_prod, cf_prod, comissao_venda, impostos, rentabilidade):
+    preco_venda = custo_prod / \
+        (1 - ((cf_prod + comissao_venda + impostos + rentabilidade) / 100))
+    return preco_venda
+
+
+def calcularOutrosCustos(preco_venda, cf_prod, comissao_venda, impostos):
+    valor_cf = (preco_venda * cf_prod) / 100
+    valor_comissao = (preco_venda * comissao_venda) / 100
+    valor_imposto = (preco_venda * impostos) / 100
+    outros_custos = valor_cf + valor_comissao + valor_imposto
+    return outros_custos
+
+
+def formatarPorcentagem(valor, preco_venda):
+    return (100 * valor) / preco_venda
+
+
+def verificarLucro(rentabilidade):
+    if rentabilidade > 20:
+        return "Lucro Alto"
+    elif rentabilidade > 10:
+        return "Lucro Médio"
+    elif rentabilidade > 0:
+        return "Lucro Baixo"
+    elif rentabilidade < 0:
+        return "Prejuízo"
+    else:
+        return "Equilíbrio"
+
+
+try:
+    conexao = mysql.connector.connect(host='localhost',
+                                      database='CadastroProdutos',
+                                      user='root',
+                                      password='@Melo241')
+    cursor = conexao.cursor()
+
+    cursor.execute("SELECT * FROM Produtos")
+    meuresultado = cursor.fetchall()
+
+    for produto in meuresultado:
+        cod_prod, nome_prod, descr_prod, custo_prod, cf_prod, comissao_venda, impostos, rentabilidade = produto
+
+        preco_venda = calcularPrecoVenda(
+            custo_prod, cf_prod, comissao_venda, impostos, rentabilidade)
+        outros_custos = calcularOutrosCustos(
+            preco_venda, cf_prod, comissao_venda, impostos)
+
+        rec_bruta = preco_venda - custo_prod
+
+        print("\t%i  %s  %s" % (cod_prod, nome_prod, descr_prod))
+        print("Descrição\t\t\t\tValor\t\t\t%")
+        print(f"A. Preço de Venda\t\t\tR${preco_venda:.2f}\t\t\t{
+              formatarPorcentagem(preco_venda, preco_venda):.0f}%")
+        print(f"B. Custo de Aquisição (Fornecedor)\tR${custo_prod:.2f}\t\t\t{
+              formatarPorcentagem(custo_prod, preco_venda):.0f}%")
+        print(f"C. Receita Bruta (A-B)\t\t\tR${rec_bruta:.2f}\t\t\t{
+              formatarPorcentagem(rec_bruta, preco_venda):.0f}%")
+        print(
+            f"D. Custo Fixo/Administrativo\t\tR${(preco_venda * cf_prod)/100:.2f}\t\t\t{cf_prod:.0f}%")
+        print(f"E. Comissão de Vendas\t\t\tR${
+              (preco_venda * comissao_venda)/100:.2f}\t\t\t{comissao_venda:.0f}%")
+        print(f"F. Impostos\t\t\t\tR${
+              (preco_venda * impostos)/100:.2f}\t\t\t{impostos:.0f}%")
+        print(f"G. Outros Custos (D+E+F)\t\tR${outros_custos:.2f}\t\t\t{
+              formatarPorcentagem(outros_custos, preco_venda):.0f}%")
+        print(f"H. Rentabilidade\t\t\tR${
+              (preco_venda * rentabilidade)/100:.2f}\t\t\t{rentabilidade:.0f}%")
+
+        resultado_lucro = verificarLucro(rentabilidade)
+        print(f"\tLucro   {resultado_lucro}")
+
+        print("-"*100)
+
+except mysql.connector.Error as erro:
+    print("Erro ao acessar o banco de dados:", erro)
+
+finally:
+    if 'conexao' in locals() and conexao.is_connected():
+        cursor.close()
+        conexao.close()
