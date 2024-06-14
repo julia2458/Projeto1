@@ -1,0 +1,246 @@
+import mysql.connector 
+
+
+def calcularPrecoVenda(custo_prod, cf_prod, comissao_venda, impostos, rentabilidade):
+    preco_venda = custo_prod / \
+        (1 - ((cf_prod + comissao_venda + impostos + rentabilidade) / 100))
+    return preco_venda
+
+
+def calcularOutrosCustos(preco_venda, cf_prod, comissao_venda, impostos):
+    valor_cf = (preco_venda * cf_prod) / 100
+    valor_comissao = (preco_venda * comissao_venda) / 100
+    valor_imposto = (preco_venda * impostos) / 100
+    outros_custos = valor_cf + valor_comissao + valor_imposto
+    return outros_custos
+
+
+def formatarPorcentagem(valor, preco_venda):
+    return (100 * valor) / preco_venda
+
+
+def cadastrar(cursor):
+    repetir = "S"
+    try:
+        while repetir == "S":
+            cod_prod = int(input("CÓDIGO DO PRODUTO: "))
+            if cod_prod <= 0:
+                print("Inválido. O código do produto deve ser maior que zero.")
+                return
+            nome_prod = input("NOME DO PRODUTO: ")
+            descr_prod = input("DESCRIÇÃO DO PRODUTO: ")
+            custo_prod = float(input("CUSTO DO PRODUTO: "))
+            if custo_prod <= 0:
+                print("Inválido. O valor do custo do produto deve ser maior que zero.")
+                return
+            cf_prod = float(input("CUSTO FIXO/ADMINISTRATIVO(%): "))
+            if cf_prod <= 0:
+                print(
+                    "Inválido. A porcentagem referente ao custo fixo deve ser maior que zero.")
+                return
+            comissao_venda = float(input("COMISSÃO DE VENDAS(%): "))
+            if comissao_venda < 0:
+                print(
+                    "Inválido. A porcentagem referente a comissão de venda deve conter um valor positivo ou nulo.")
+                return
+            impostos = float(input("IMPOSTOS(%): "))
+            if impostos <= 0:
+                print(
+                    "Inválido. A porcentagem referenta ao imposto deve ser maior que zero.")
+                return
+            rentabilidade = float(input("LUCRO PRETENDIDO(%): "))
+
+            comando = f'INSERT INTO produtos (cod_prod, nome_prod, descr_prod, custo_prod, cf_prod, comissao_venda, impostos, rentabilidade) VALUES ({
+                cod_prod}, "{nome_prod}", "{descr_prod}", {custo_prod}, {cf_prod}, {comissao_venda}, {impostos}, {rentabilidade})'
+            cursor.execute(comando)
+            conexao.commit()
+            repetir = input(
+                "Deseja cadastrar mais algum produto? (S/N): ").upper()
+    except ValueError:
+        print("Valor inválido!")
+
+
+def procurar(estoque):
+    print('Procurar Produtos essa função ainda não foi implementada')
+
+
+def obter_nomes_colunas(cursor):
+    cursor.execute("SHOW COLUMNS FROM produtos")
+    nomes_colunas = [coluna[0] for coluna in cursor.fetchall()]
+    return nomes_colunas
+
+
+def opcaoEscolhida(menu):
+    for i, opcao in enumerate(menu, 1):
+        print(f"{i}. {opcao}")
+    escolha = input("Escolha a opção desejada: ")
+    return escolha
+
+
+def alterar(cursor):
+    try:
+        cod_prod = int(input("CÓDIGO DO PRODUTO: "))
+        cursor.execute(f"SELECT * FROM produtos WHERE cod_prod = {cod_prod}")
+        meuresultado = cursor.fetchone()
+        if meuresultado is None:
+            print("Não foi encontrado nenhum registro no banco de dados!")
+            return
+        print(meuresultado)
+        repetir = input("Certeza que deseja atualizar produto?(S/N): ").upper()
+        while repetir == "S":
+            menuAtualizar = ["Atualizar Nome",
+                             "Atualizar Descrição",
+                             "Atualizar Custo do Produto",
+                             "Atualizar Custo Fixo ",
+                             "Atualizar Comissão de Venda",
+                             "Atualizar Imposto",
+                             "Atualizar Rentabilidade",
+                             "Sair do menu de atualizações"]
+            opcaoAtualizar = 888
+            while opcaoAtualizar < 1 or opcaoAtualizar > 8:
+                # Supondo que opcaoEscolhida esteja definida em algum lugar
+                opcaoAtualizar = int(opcaoEscolhida(menuAtualizar))
+            if opcaoAtualizar < 8:
+                valor = input(f"Novo valor para {
+                              menuAtualizar[opcaoAtualizar - 1]}: ")
+                # campo = menuAtualizar[opcaoAtualizar - 1].lower().split()[-1]
+                nomes_colunas = obter_nomes_colunas(cursor)
+                campo = nomes_colunas[opcaoAtualizar]
+                comando = f"UPDATE produtos SET {campo} = '{
+                    valor}' WHERE cod_prod = {cod_prod}"
+                cursor.execute(comando)
+                conexao.commit()
+                repetir = input(
+                    "Deseja atualizar mais alguma informação? (S/N): ").upper()
+    except ValueError:
+        print("Valor inválido!")
+
+
+def classificar(cursor, cod_prod):
+    try:
+        if not cod_prod:
+            print("Código não existente.")
+            return None
+        
+        query = "SELECT cod_prod, nome_prod, descr_prod, custo_prod, cf_prod, comissao_venda, impostos, rentabilidade FROM Produtos WHERE cod_prod = %s"
+    
+        cursor.execute(query, (cod_prod,))
+        
+        colunas = [desc[0] for desc in cursor.description]
+        produto = cursor.fetchone()
+        
+        if produto:
+            produto = dict(zip(colunas, produto))
+          
+            rentabilidade = produto['rentabilidade']
+            if rentabilidade > 20:
+                produto['classificacao'] = "Lucro Alto"
+            elif rentabilidade > 10:
+                produto['classificacao'] = "Lucro Médio"
+            elif rentabilidade > 0:
+                produto['classificacao'] = "Lucro Baixo"
+            elif rentabilidade < 0:
+                produto['classificacao'] = "Prejuízo"
+            else:
+                produto['classificacao'] = "Equilíbrio"
+            print()
+            print("Informações do Produto:")
+            for chave, valor in produto.items():
+                print(f"{chave}: {valor}")
+            return produto
+        else:
+            print("Produto não encontrado.")
+            return None
+    except Exception as e:
+        print("Erro ao classificar o produto:", str(e))
+        return None
+
+
+def excluir(cursor):
+    repetir = "S"
+    try:
+        while repetir == "S":
+            cod_prod = int(input("CÓDIGO DO PRODUTO: "))
+            cursor.execute(
+                f"SELECT * FROM produtos WHERE cod_prod = {cod_prod}")
+            meuresultado = cursor.fetchone()
+            if meuresultado is None:
+                print("Não foi encontrado nenhum registro no banco de dados!")
+                return
+            print(meuresultado)
+            confirmar = input(
+                "Deseja realmente excluir o cadastro do produto?(S/N) ").upper()
+            if confirmar == "S" or confirmar == "SIM":
+                comando = f'DELETE FROM produtos WHERE cod_prod = {cod_prod}'
+                cursor.execute(comando)
+                conexao.commit()
+            else:
+                print("Remoção não realizada!")
+            repetir = input(
+                "Deseja excluir mais algum produto? (S/N): ").upper()
+    except ValueError:
+        print("Valor inválido!")
+
+
+def opcaoEscolhida(menu):
+    print()
+    opcoesValidas = []
+    posicao = 0
+    while posicao < len(menu):
+        print(posicao + 1, ') ', menu[posicao], sep='')
+        opcoesValidas.append(str(posicao + 1))
+        posicao += 1
+    print()
+    return txtValida('Qual é a Opção desejada? ', 'Opção inválida', opcoesValidas)
+
+
+def txtValida(solicitacao, mensagem, valido):
+    entradaValida = False
+    while not entradaValida:
+        txt = input(solicitacao)
+        if txt not in valido:
+            print(mensagem, 'Redigite Por Favor!')
+        else:
+            entradaValida = True
+    return txt
+
+
+try:
+    conexao = mysql.connector.connect(host='localhost',
+                                      database='CadastroProdutos',
+                                      user='root',
+                                      password='@Melo241')
+
+    cursor = conexao.cursor()
+
+    menu = [
+        'Cadastrar Produtos',
+        'Alterar Produtos',
+        'Excluir Produtos',
+        'Classificar Lucro do Produto',
+        'Sair do Sistema'
+    ]
+
+    op = 100
+    while op != 6:
+        op = int(opcaoEscolhida(menu))
+        if op == 1:
+            cadastrar(cursor)
+        elif op == 2:
+            alterar(cursor)
+        elif op == 3:
+            excluir(cursor)
+        elif op == 4:
+            cod_prod = int(input("Informe o código do produto: "))
+            print("Classificação da Rentabilidade:",
+                  classificar(cursor, cod_prod))
+
+    print('OBRIGADO POR USAR ESTE PROGRAMA!')
+
+except mysql.connector.Error as erro:
+    print("Erro ao acessar o banco de dados:", erro)
+
+finally:
+    if 'conexao' in locals() and conexao.is_connected():
+        cursor.close()
+        conexao.close()
