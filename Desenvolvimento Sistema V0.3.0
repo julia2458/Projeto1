@@ -1,4 +1,4 @@
-import mysql.connector 
+import mysql.connector
 
 
 def calcularPrecoVenda(custo_prod, cf_prod, comissao_venda, impostos, rentabilidade):
@@ -71,10 +71,15 @@ def obter_nomes_colunas(cursor):
 
 
 def opcaoEscolhida(menu):
-    for i, opcao in enumerate(menu, 1):
-        print(f"{i}. {opcao}")
-    escolha = input("Escolha a opção desejada: ")
-    return escolha
+    print()
+    opcoesValidas = []
+    posicao = 0
+    while posicao < len(menu):
+        print(posicao + 1, ') ', menu[posicao], sep='')
+        opcoesValidas.append(str(posicao + 1))
+        posicao += 1
+    print()
+    return txtValida('Qual é a Opção desejada? ', 'Opção inválida', opcoesValidas)
 
 
 def alterar(cursor):
@@ -98,12 +103,10 @@ def alterar(cursor):
                              "Sair do menu de atualizações"]
             opcaoAtualizar = 888
             while opcaoAtualizar < 1 or opcaoAtualizar > 8:
-                # Supondo que opcaoEscolhida esteja definida em algum lugar
                 opcaoAtualizar = int(opcaoEscolhida(menuAtualizar))
             if opcaoAtualizar < 8:
                 valor = input(f"Novo valor para {
                               menuAtualizar[opcaoAtualizar - 1]}: ")
-                # campo = menuAtualizar[opcaoAtualizar - 1].lower().split()[-1]
                 nomes_colunas = obter_nomes_colunas(cursor)
                 campo = nomes_colunas[opcaoAtualizar]
                 comando = f"UPDATE produtos SET {campo} = '{
@@ -121,17 +124,17 @@ def classificar(cursor, cod_prod):
         if not cod_prod:
             print("Código não existente.")
             return None
-        
+
         query = "SELECT cod_prod, nome_prod, descr_prod, custo_prod, cf_prod, comissao_venda, impostos, rentabilidade FROM Produtos WHERE cod_prod = %s"
-    
+
         cursor.execute(query, (cod_prod,))
-        
+
         colunas = [desc[0] for desc in cursor.description]
         produto = cursor.fetchone()
-        
+
         if produto:
             produto = dict(zip(colunas, produto))
-          
+
             rentabilidade = produto['rentabilidade']
             if rentabilidade > 20:
                 produto['classificacao'] = "Lucro Alto"
@@ -143,10 +146,7 @@ def classificar(cursor, cod_prod):
                 produto['classificacao'] = "Prejuízo"
             else:
                 produto['classificacao'] = "Equilíbrio"
-            print()
-            print("Informações do Produto:")
-            for chave, valor in produto.items():
-                print(f"{chave}: {valor}")
+
             return produto
         else:
             print("Produto não encontrado.")
@@ -155,6 +155,44 @@ def classificar(cursor, cod_prod):
         print("Erro ao classificar o produto:", str(e))
         return None
 
+
+def exibir_informacoes_produto(produto):
+    print("-"*100)
+    print("\t\t\tINFORMAÇÕES DO PRODUTO\t\t\t")
+    print("-"*100)
+    print(f"Código\t\t\t{produto['cod_prod']}\t\t\t")
+    print(f"Nome\t\t\t{produto['nome_prod']}\t\t\t")
+    print(f"Descrição\t\t{produto['descr_prod']}\t\t\t")
+    print("-"*100)
+    print("DESCRIÇÃO\t\t\tVALOR\t\tPORCENTAGEM")
+    print("-"*100)
+    preco_venda = calcularPrecoVenda(produto['custo_prod'], produto['cf_prod'],
+                                     produto['comissao_venda'], produto['impostos'], produto['rentabilidade'])
+    por100_precoVenda = formatarPorcentagem(preco_venda, preco_venda)
+    por100_custoProd = formatarPorcentagem(produto['custo_prod'], preco_venda)
+    rec_bruta = preco_venda - produto['custo_prod']
+    por100_recBruta = formatarPorcentagem(rec_bruta, preco_venda)
+    outros_custos = calcularOutrosCustos(
+    preco_venda, produto['cf_prod'], produto['comissao_venda'], produto['impostos'])
+    por100_outros = formatarPorcentagem(outros_custos, preco_venda)
+
+    print(f"Preço de Venda\t\t\tR${
+          preco_venda:.2f}\t\t{por100_precoVenda:.2f}%")
+    print(f"Custo de Aquisição\t\tR${
+          produto['custo_prod']:.2f}\t\t{por100_custoProd:.2f}%")
+    print(f"Receita Bruta\t\t\tR${rec_bruta:.2f}\t\t{por100_recBruta:.2f}%")
+    print(
+        f"Custo Fixo/Administrativo\tR${produto['cf_prod']:.2f}\t\t{produto['cf_prod']:.2f}%")
+    print(f"Comissão de Vendas\t\tR${
+          (preco_venda * produto['comissao_venda'] / 100):.2f}\t\t{produto['comissao_venda']:.2f}%")
+    print(f"Impostos\t\t\tR${
+          (preco_venda * produto['impostos'] / 100):.2f}\t\t{produto['impostos']:.2f}%")
+    print(f"Outros Custos\t\t\tR${outros_custos:.2f}\t\t{por100_outros:.2f}%")
+    print(f"Rentabilidade\t\t\tR${
+          (preco_venda * produto['rentabilidade'] / 100):.2f}\t\t{(produto['rentabilidade']):.2f}%")
+    print("-"*100)
+    print(f"{produto['classificacao']}")
+    print("-"*100)
 
 def excluir(cursor):
     repetir = "S"
@@ -222,7 +260,7 @@ try:
     ]
 
     op = 100
-    while op != 6:
+    while op != 5:
         op = int(opcaoEscolhida(menu))
         if op == 1:
             cadastrar(cursor)
@@ -232,8 +270,9 @@ try:
             excluir(cursor)
         elif op == 4:
             cod_prod = int(input("Informe o código do produto: "))
-            print("Classificação da Rentabilidade:",
-                  classificar(cursor, cod_prod))
+            produto = classificar(cursor, cod_prod)
+            if produto:
+                exibir_informacoes_produto(produto)
 
     print('OBRIGADO POR USAR ESTE PROGRAMA!')
 
